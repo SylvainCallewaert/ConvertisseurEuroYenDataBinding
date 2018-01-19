@@ -27,8 +27,12 @@ public class Converter extends BaseObservable{
     }
 
     public Converter setEuro(String euro) {
+        if (! euro.equals("")){
         this.euro = Double.valueOf(euro);
-        this.yen = this.euro * Double.valueOf(135.86);
+        this.yen = this.euro * Double.valueOf(135.86);}
+        else {
+            this.yen=0.0;
+        }
         //notifie la classe BR (bindingreference)
         notifyPropertyChanged(BR.euro);
         notifyPropertyChanged(BR.yen);
